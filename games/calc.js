@@ -1,4 +1,4 @@
-import game_dialogue from "../src/game_dialogue.js";
+import game_dialogue from "../index.js";
 import askName from "../src/askName.js";
 
 const gameParams = () => {

@@ -1,16 +1,20 @@
-import readlineSync from 'readline-sync';
+import askName from "../src/askName.js";
+import game_dialogue from "../index.js";
+
+const gameParams = () => {
+    const gameData =[];
+    let question, correctAnswer;
+    for (let i = 0; i < 3; i += 1) {
+        question = Math.floor(Math.random() * 100);
+        correctAnswer = (question % 2 === 0) ? 'yes' : 'no';
+        gameData[i] = [question, correctAnswer]
+    }
+    return gameData;
+};
 
 export default () => {
-  const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name}!`);
-  game(name);
-};
-console.log('Answer "yes" if the number is even, otherwise answer "no".');
-
-    if (answer === correctAnswer) {
-      console.log('Correct!');
-      counter += 1;
-    } else console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
-  }
-  if (counter === 3) console.log(`Congratulations, ${name}!`);
+    let name = askName();
+    let gameData= gameParams();
+    console.log('Answer "yes" if the number is even, otherwise answer "no".');
+    game_dialogue(gameData, name);
 }
