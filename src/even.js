@@ -5,16 +5,8 @@ export default () => {
   console.log(`Hello, ${name}!`);
   game(name);
 };
+console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
-const game = (name) => {
-  let counter = 0;
-  let guessedNumber;
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
-  for (let i = 0; i <= 2; i += 1) {
-    guessedNumber = Math.floor(Math.random() * 100);
-    console.log(`Question: ${guessedNumber}`);
-    const correctAnswer = (guessedNumber % 2 === 0) ? 'yes' : 'no';
-    const answer = readlineSync.question('Your answer: ');
     if (answer === correctAnswer) {
       console.log('Correct!');
       counter += 1;
