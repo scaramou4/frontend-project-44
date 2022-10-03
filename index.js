@@ -10,7 +10,8 @@ export default (gameData, gameRules) => {
   for (let i = 0; i < 3; i += 1) {
     [question, correctAnswer] = gameData[i];
     console.log(`Question: ${question}`);
-    const answer = readlineSync.question('Your answer: ').toString();
+    // в следующей строке убрать хинт
+    const answer = readlineSync.question(`Your answer (hint: ${correctAnswer}): `).toString();
     if (answer === correctAnswer) {
       console.log('Correct!');
       counter += 1;
